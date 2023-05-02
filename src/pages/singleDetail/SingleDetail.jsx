@@ -9,7 +9,7 @@ const SingleDetail = () => {
     return (
         <div>
             <NavigationBar></NavigationBar>
-           <div>
+           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-6'>
             {
                 details.map(detail=><SingleData key={details._id}  detail={detail}></SingleData>)
             }
