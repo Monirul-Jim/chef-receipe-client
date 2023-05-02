@@ -19,11 +19,14 @@ const router=createBrowserRouter([
                 element:<BlogPages></BlogPages>
             },
             {
-                path:'/category',
+                path:'/category/:id',
                 element:<SingleDetail></SingleDetail>,
+                loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
             }
+
         ]
-    }
+    },
+    
 ])
 
 export default router;
