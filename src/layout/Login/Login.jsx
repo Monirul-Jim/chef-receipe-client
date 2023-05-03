@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
 import NavigationBar from '../../shared/navigationBar/NavigationBar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
     const {loginUser}=useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
+    const navigate=useNavigate()
     const handleRegister=event=>{
         event.preventDefault();
         const form = event.target;
@@ -14,8 +15,8 @@ const Login = () => {
         loginUser(email,password)
         .then(result=>{
             const logged=result.user;
-            console.log(logged);
             form.reset()
+            navigate('/')
         })
         .catch(error=>{
             console.log(error);

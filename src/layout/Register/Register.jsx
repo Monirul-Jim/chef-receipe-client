@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
-    const { user, registerUser } = useContext(AuthContext)
+    const { user, registerUser,updatePic } = useContext(AuthContext)
     const [error, setError] = useState();
     const [showPassword, setShowPassword] = useState(false);
     const handleRegister = (event) => {
@@ -12,10 +12,12 @@ const Register = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
+        const photoUrl=form.photoUrl.value;
         const password = form.password.value
-        registerUser(email, password, name)
+        registerUser(email, password, name,photoUrl)
             .then(result => {
                 const loggedUser = result.user
+                updatePic({displayName:name,photoURL:photoUrl})
                 console.log(loggedUser);
                 form.reset()
             })
@@ -39,11 +41,18 @@ const Register = () => {
                             </label>
                             <input name='name' type="text" placeholder="name" className="input input-bordered" />
                         </div>
+                       
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input name='email' type="email" placeholder="email" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo Url</span>
+                            </label>
+                            <input  name='photoUrl' type="text" placeholder="photo url" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
