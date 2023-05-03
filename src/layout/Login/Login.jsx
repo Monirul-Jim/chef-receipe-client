@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-    const { loginUser,handleWithGoogle } = useContext(AuthContext)
+    const { loginUser,handleWithGoogle,handleGithub} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate()
     const location = useLocation()
@@ -30,6 +30,15 @@ const Login = () => {
         handleWithGoogle()
         .then(result=>{
             const user = result.user;
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+    const loginWithGithub=()=>{
+        handleGithub()
+        .then(result=>{
+            const user=result.user
         })
         .catch(error=>{
             console.log(error);
@@ -71,7 +80,7 @@ const Login = () => {
                         <p>Don't have an account please ? <Link className='text-blue-800 font-semibold underline' to='/register'>Register</Link></p>
                     </form>
                     <button onClick={loginWithGooglePopup} className="btn btn-primary">Login With Google</button>
-                    <button className="btn btn-outline btn-secondary">Login With Github</button>
+                    <button onClick={ loginWithGithub} className="btn btn-outline btn-secondary">Login With Github</button>
                 </div>
             </div>
 
