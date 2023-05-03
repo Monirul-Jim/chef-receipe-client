@@ -16,7 +16,7 @@ const NavigationBar = () => {
                         <Link>User</Link>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Hungry Monster</a>
+                <Link to='/' className="btn btn-ghost normal-case text-xl" >Hungry Monster</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 space-x-6">
@@ -26,7 +26,7 @@ const NavigationBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <Link to='/login'><button className="btn btn-primary btn-sm">Login</button></Link>
             </div>
         </div>
     );
