@@ -18,7 +18,7 @@ const ChefPage = ({ data }) => {
                             <h1>Total Likes:{likes}</h1>
                         </div>
                     </div>
-                   <Link to={`/category/${id}`}><button className="btn btn-active btn-primary w-full mt-2">Button</button></Link>
+                   <Link to={`/category/${id}`}><button className="btn btn-active btn-primary w-full mt-2">View Details</button></Link>
 
                 </div>
             </div>
