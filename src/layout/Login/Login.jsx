@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import NavigationBar from '../../shared/navigationBar/NavigationBar';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { FaGoogle,FaGithub} from 'react-icons/fa';
 
 const Login = () => {
     const { loginUser,handleWithGoogle,handleGithub} = useContext(AuthContext)
@@ -79,8 +80,8 @@ const Login = () => {
                         </div>
                         <p>Don't have an account please ? <Link className='text-blue-800 font-semibold underline' to='/register'>Register</Link></p>
                     </form>
-                    <button onClick={loginWithGooglePopup} className="btn btn-primary">Login With Google</button>
-                    <button onClick={ loginWithGithub} className="btn btn-outline btn-secondary">Login With Github</button>
+                    <button onClick={loginWithGooglePopup} className="btn btn-outline btn-primary"><FaGoogle className=' me-4'></FaGoogle> Login With Google</button>
+                    <button onClick={ loginWithGithub} className="btn btn-outline btn-secondary"> <FaGithub className='me-4'></FaGithub> Login With Github</button>
                 </div>
             </div>
 
