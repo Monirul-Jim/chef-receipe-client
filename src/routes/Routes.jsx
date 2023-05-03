@@ -8,6 +8,7 @@ import SingleData from '../pages/singleData/SingleData';
 import SingleChef from '../pages/singleDetail/SingleChef';
 import Login from '../layout/Login/Login';
 import Register from '../layout/Register/Register';
+import PrivateRoute from './privateRoute/PrivateRoute';
 
 const router=createBrowserRouter([
     {
@@ -39,7 +40,7 @@ const router=createBrowserRouter([
       children:[
         {
             path:':id',
-            element:<SingleChef></SingleChef>,
+            element:<PrivateRoute><SingleChef></SingleChef></PrivateRoute> ,
             loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
         }
       ]
