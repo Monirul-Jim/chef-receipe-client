@@ -5,7 +5,8 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
     const { user, registerUser,updatePic } = useContext(AuthContext)
-    const [error, setError] = useState();
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState();
     const [showPassword, setShowPassword] = useState(false);
     const handleRegister = (event) => {
         event.preventDefault();
@@ -13,18 +14,26 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const photoUrl=form.photoUrl.value;
-        const password = form.password.value
+        const password = form.password.value;
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters long.");
+            return;
+        }
         registerUser(email, password, name,photoUrl)
             .then(result => {
                 const loggedUser = result.user
                 updatePic({displayName:name,photoURL:photoUrl})
                 console.log(loggedUser);
+                setSuccess('Successfully registered!');
                 form.reset()
             })
             .then(error => {
                 console.log(error);
+                setError(error.message);
             })
     }
+    
+    
     const handleCheckboxChange = () => {
         setShowPassword(!showPassword);
     };
@@ -35,6 +44,13 @@ const Register = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleRegister} className="card-body">
+                    {error && (
+                            <div className="alert alert-error mb-4">{error}</div>
+                        )}
+                        {
+                            success && (
+                                <div className="alert  alert-success mb-4">{success}</div>
+                            ) }
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -46,7 +62,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input name='email' type="email" placeholder="email" className="input input-bordered" />
+                            <input name='email' type="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -58,7 +74,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input name='password' type={showPassword ? "text" : "password"} placeholder="password" className="input input-bordered" />
+                            <input name='password' type={showPassword ? "text" : "password"} placeholder="password" className="input input-bordered" required/>
                         </div>
                         {/* click on show password  */}
 
