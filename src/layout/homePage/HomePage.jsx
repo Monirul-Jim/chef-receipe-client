@@ -7,10 +7,8 @@ const ChefPages = lazy(() => import('../../pages/ChefPages/ChefPages'));
 const HomePage = () => {
     return (
         <>
-          <Suspense fallback={<div><progress className="progress w-56"></progress></div>}>
 
            <Header></Header>
-          </Suspense>
          <Suspense fallback={<div><progress className="progress w-56"></progress></div>}>
            <ChefPages></ChefPages>
            </Suspense>
