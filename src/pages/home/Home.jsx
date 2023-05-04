@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import NavigationBar from '../../shared/navigationBar/NavigationBar';
-import { Outlet } from 'react-router-dom';
 import HomePage from '../../layout/homePage/HomePage';
+import { Outlet } from 'react-router-dom';
 
 const Home = () => {
     return (
         <div>
             <NavigationBar></NavigationBar>
-            <HomePage></HomePage>
-            <Outlet></Outlet>
+                <HomePage />
+                <Outlet />
         </div>
     );
 };

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import SingleChefBanner from './SingleChefBanner/SingleChefBanner';
 
 const SingleChefDetails = ({data}) => {
     const {chef_picture,chef_name,years_of_experience,num_recipes,likes,description}=data
