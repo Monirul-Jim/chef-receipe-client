@@ -9,6 +9,7 @@ import SingleChef from '../pages/singleDetail/SingleChef';
 import Login from '../layout/Login/Login';
 import Register from '../layout/Register/Register';
 import PrivateRoute from './privateRoute/PrivateRoute';
+import ErrorElement from '../layout/errorPage/ErrorElement';
 
 const router=createBrowserRouter([
     {
@@ -44,7 +45,11 @@ const router=createBrowserRouter([
             loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
         }
       ]
-    }
+    },
+    {
+        path: "*",
+        element:<ErrorElement></ErrorElement> ,
+      },
     
 ])
 export default router;

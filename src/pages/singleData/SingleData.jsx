@@ -14,7 +14,7 @@ const SingleData = ({ detail }) => {
     return (
         <div>
 
-            <div className="card w-96 bg-base-100 shadow-xl mx-auto border-2">
+            <div className="card w-98 bg-base-100 shadow-xl mx-auto border-2">
                 <figure className="aspect-w-1 aspect-h-1"><img className="object-cover w-full" src={food_picture} alt="Food" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{recipe_name}</h2>

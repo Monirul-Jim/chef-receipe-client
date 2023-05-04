@@ -11,7 +11,7 @@ const NavigationBar = () => {
         .catch(error=>console.log(error))
     }
     return (
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-black">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -23,10 +23,10 @@ const NavigationBar = () => {
                         <Link to='/blog-page'>Blog</Link>
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl" >Hungry Monster</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl text-white" >Hungry Monster</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 space-x-6">
+                <ul className="menu text-white menu-horizontal px-1 space-x-6">
                   <ActiveLink to='/'>Home</ActiveLink>
                     <ActiveLink to='/blog-page'>Blog</ActiveLink>
                 </ul>
