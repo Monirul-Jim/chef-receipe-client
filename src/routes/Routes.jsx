@@ -43,7 +43,7 @@ const router=createBrowserRouter([
         {
             path:':id',
             element:<PrivateRoute><SingleChef></SingleChef></PrivateRoute> ,
-            loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+            loader:({params})=>fetch(`https://the-chef-recipe-hunter-serverside-monirul-jim.vercel.app/data/${params.id}`)
         }
       ]
     },

@@ -5,7 +5,7 @@ import Banner from '../banner/Banner';
 const ChefPages = () => {
     const [datas,setData]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/data')
+        fetch('https://the-chef-recipe-hunter-serverside-monirul-jim.vercel.app/data')
         .then(res=>res.json())
         .then(data=>setData(data))
     },[])
