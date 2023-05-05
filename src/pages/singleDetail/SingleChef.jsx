@@ -5,7 +5,6 @@ import SingleChefDetails from '../singlechef/SingleChefDetails';
 
 const SingleChef = () => {
     const details=useLoaderData()
-    console.log(details);
     return (
         <div>
               <>
